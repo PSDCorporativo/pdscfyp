@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author mateus
  */
 @Controller
-public class HelloController {
-    @RequestMapping("/hello")
-    public String hello() {
-        return "hello";
+public class MainController {
+    @RequestMapping("index")
+    public String index() {
+        return "index";
     }
 }

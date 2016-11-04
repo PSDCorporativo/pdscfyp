@@ -7,6 +7,7 @@ package br.edu.ifrn.pdscfyp.Controller;
 
 import br.edu.ifrn.pdscfyp.Model.Profissional;
 import java.util.Set;
+import java.util.TreeSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,23 @@ public class ProfissionalController {
         model.addAttribute("profissionais", profissionais);
      
         return "listProfissionais";
+    }
+    
+    @RequestMapping("/RakingProfissionais")
+    public String RankingProfissionais(Model model) {
+        Set<Profissional> profissionais = Profissional.getProfissionais();
+        Set<Profissional> profissionaisRankeados = new TreeSet();
+        
+        for (Profissional p : profissionais) {
+            profissionaisRankeados.add(p);
+        }
+        
+        model.addAttribute("profissionaisRankeados", profissionaisRankeados);
+        return "rankingProfissionais";
+    }
+    
+    @RequestMapping("/CadastrarProfissional")
+    public String CadastrarProfissional() {
+        return "";
     }
 }

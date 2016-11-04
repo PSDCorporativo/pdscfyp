@@ -19,7 +19,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Profissional {
+public class Profissional implements Comparable<Profissional> {
 
     private int id;
     private String nome;
@@ -31,12 +31,13 @@ public class Profissional {
     private String profissao;
     private float logintude;
     private float latitude;
+//TODO:    private int pontuacao; 
 
     public Profissional(String nome, String email, String login, String senha,
             int idNacional, String descricao, String profissao, float latitude,
             float logintude) {
         this.senha = senha;
-        this.descricao = descricao;
+        this.profissao = profissao;
         this.email = email;
         this.idNacional = idNacional;
         this.profissao = profissao;
@@ -45,7 +46,13 @@ public class Profissional {
         this.latitude = latitude;
         this.logintude = logintude;
     }
-
+    
+    @Override
+    public int compareTo(Profissional p) {
+        //TODO: 
+        return 1;
+    }
+    
     public static Set<Profissional> getProfissionais() {
         Client c = Client.create();
         WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/Profissionais/list");
@@ -54,5 +61,19 @@ public class Profissional {
         Gson gson = new Gson();
         return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
         }.getType());
+    }
+
+    public static Profissional getProfissional(String nome) {
+        Client c = Client.create();
+        WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/profissional/get/{login}");
+        String json = wr.get(String.class);
+
+        Gson gson = new Gson();
+        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
+        }.getType());
+    }
+    
+    public static void addProfissional(Profissional p) {
+        //TODO: 
     }
 }
