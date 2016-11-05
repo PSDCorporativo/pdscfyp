@@ -89,7 +89,7 @@ public class Profissional implements Comparable<Profissional> {
 
         Gson gson = new Gson();
 
-        WebResource wr = c.resource("https://apifyp.herokuapp.com/AddProfissional");
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/AdicionarProfissional");
 
         ClientResponse cr = wr.accept("application/json").
                 type("application/json").post(ClientResponse.class, gson.toJson(p));
