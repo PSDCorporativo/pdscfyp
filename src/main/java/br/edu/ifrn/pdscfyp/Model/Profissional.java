@@ -66,7 +66,7 @@ public class Profissional implements Comparable<Profissional> {
 
     public static Profissional getProfissionalByLogin(String login) {
         Client c = Client.create();
-        WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login={login}");
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login=" + login);
         String json = wr.get(String.class);
 
         Gson gson = new Gson();
