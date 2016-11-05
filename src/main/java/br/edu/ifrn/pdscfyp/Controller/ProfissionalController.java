@@ -62,7 +62,7 @@ public class ProfissionalController {
         
         Profissional p = new Profissional(nome, email, login, senha, 0, descricao, profisao, 0, 0, 0);
         
-        System.out.println(p.getLogin());
+        Profissional.addProfissional(p);
         
         return "cadastrarProfissional";
     }
