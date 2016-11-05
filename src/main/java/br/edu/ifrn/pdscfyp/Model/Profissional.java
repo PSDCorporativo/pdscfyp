@@ -31,11 +31,11 @@ public class Profissional implements Comparable<Profissional> {
     private String profissao;
     private float logintude;
     private float latitude;
-//TODO:    private int pontuacao; 
+    private int pontuacao;
 
     public Profissional(String nome, String email, String login, String senha,
             int idNacional, String descricao, String profissao, float latitude,
-            float logintude) {
+            float logintude, int pontuacao) {
         this.senha = senha;
         this.profissao = profissao;
         this.email = email;
@@ -45,17 +45,38 @@ public class Profissional implements Comparable<Profissional> {
         this.nome = nome;
         this.latitude = latitude;
         this.logintude = logintude;
+        this.pontuacao = pontuacao;
     }
-    
+
     @Override
     public int compareTo(Profissional p) {
         //TODO: 
         return 1;
     }
-    
+
+//    public static Set<Profissional> getProfissionais() {
+//        Client c = Client.create();
+//        WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/Profissionais/list");
+//        String json = wr.get(String.class);
+//
+//        Gson gson = new Gson();
+//        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
+//        }.getType());
+//    }
+
+    public static Profissional getProfissionalByLogin(String login) {
+        Client c = Client.create();
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login={login}");
+        String json = wr.get(String.class);
+
+        Gson gson = new Gson();
+        return gson.fromJson(json, new TypeToken<Profissional>() {
+        }.getType());
+    }
+
     public static Set<Profissional> getProfissionais() {
         Client c = Client.create();
-        WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/Profissionais/list");
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/ListProfissionais");
         String json = wr.get(String.class);
 
         Gson gson = new Gson();
@@ -63,16 +84,6 @@ public class Profissional implements Comparable<Profissional> {
         }.getType());
     }
 
-    public static Profissional getProfissional(String nome) {
-        Client c = Client.create();
-        WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/profissional/get/{login}");
-        String json = wr.get(String.class);
-
-        Gson gson = new Gson();
-        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
-        }.getType());
-    }
-    
     public static void addProfissional(Profissional p) {
         //TODO: 
     }
