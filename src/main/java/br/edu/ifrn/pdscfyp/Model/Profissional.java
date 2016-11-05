@@ -8,6 +8,7 @@ package br.edu.ifrn.pdscfyp.Model;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import java.util.Set;
 import lombok.Getter;
@@ -63,7 +64,6 @@ public class Profissional implements Comparable<Profissional> {
 //        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
 //        }.getType());
 //    }
-
     public static Profissional getProfissionalByLogin(String login) {
         Client c = Client.create();
         WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login=" + login);
@@ -85,6 +85,13 @@ public class Profissional implements Comparable<Profissional> {
     }
 
     public static void addProfissional(Profissional p) {
-        //TODO: 
+        Client c = Client.create();
+
+        Gson gson = new Gson();
+
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/AddProfissional");
+
+        ClientResponse cr = wr.accept("application/json").
+                type("application/json").post(ClientResponse.class, gson.toJson(p));
     }
 }

@@ -6,11 +6,21 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>FindYourPro</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        <p>Aqui vai ficar o CadastrarProfissional</p>
+        <h1>Cadastrar Profissional</h1>
+        <form method="POST" action="/cadastrar">
+            <label>Nome:</label><input type="text" name="nome" /><br />
+            <label>Email:</label><input type="text" name="email" /><br />
+            <label>Login:</label><input type="text" name="login" /><br />
+            <label>Senha:</label><input type="password" name="senha" /><br />
+            <label>IDNacional:</label><input type="text" name="idnacional" /><br />
+            <label>Descrição:</label><input type="text" name="descricao" /><br />
+            <label>Profissao:</label><input type="text" name="profissao" /><br />
+            <input type="submit" value="Submit"/>
+        </form>
     </body>
 </html>

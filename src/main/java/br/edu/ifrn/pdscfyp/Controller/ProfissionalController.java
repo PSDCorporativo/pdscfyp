@@ -9,9 +9,12 @@ import br.edu.ifrn.pdscfyp.Model.Profissional;
 import java.util.Set;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -45,13 +48,22 @@ public class ProfissionalController {
         return "rankingProfissionais";
     }
     
-    @RequestMapping("/CadastrarProfissional")
+    @RequestMapping("/cadastrar")
     public String CadastrarProfissional() {
+        
         return "cadastrarProfissional";
     }
     
-    @RequestMapping(value="/CadastrarProfissional", method = RequestMethod.POST)
-    public String CadastroProfissional() {
+    @RequestMapping(value="/cadastrar", method = RequestMethod.POST)
+    public String CadastroProfissional(@RequestParam("nome") String nome,
+            @RequestParam("email") String email,@RequestParam("login") String login,
+            @RequestParam("senha") String senha, @RequestParam("idnacional") String idNacional,
+            @RequestParam("descricao") String descricao, @RequestParam("profissao") String profisao){
+        
+        Profissional p = new Profissional(nome, email, login, senha, 0, descricao, profisao, 0, 0, 0);
+        
+        System.out.println(p.getLogin());
+        
         return "cadastrarProfissional";
     }
 }
