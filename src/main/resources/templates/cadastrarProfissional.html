@@ -1,36 +1,39 @@
 <!doctype html>
-<html>
-    <head>
-	<title>FindYourPro</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="../css/bootstrap.min.css" />
-    </head>
-    <body>
-	<h1 class="text-center">Cadastrar Profissional</h1>
-	<div class="col-md-4 col-md-offset-4">
-	    <form>
-		<div class="form-group">
-		    <label for="nome">Nome</label>
-		    <input type="text" class="form-control" id="nome" placeholder="Nome">
-		</div>
-		<div class="form-group">
-		    <label for="email">Email</label>
-		    <input type="email" class="form-control" id="email" placeholder="Email">
-		</div>
-		<div class="form-group">
-		    <label for="senha">Senha</label>
-		    <input type="password" class="form-control" id="senha" placeholder="Senha">
-		</div>
-		<div class="form-group">
-		    <label for="descricao">Descricao</label>
-		    <input type="text" class="form-control" id="descricao" placeholder="Descricao">
-		</div>
-		<div class="form-group">
-		    <label for="profissao">Profissão</label>
-		    <input type="text" class="form-control" id="profissao" placeholder="Profissão">
-		</div>
-		<button type="submit" class="btn btn-primary col-md-12">Submit</button>
-	    </form>
-	</div>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org">
+    <title>FindYourPro</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+</head>
+<body>
+    <h1 class="text-center">Cadastrar Profissional</h1>
+    <div class="col-md-4 col-md-offset-4">
+        <form>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" id="login" placeholder="Login">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" placeholder="Senha">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descricao</label>
+                <input type="text" class="form-control" id="descricao" placeholder="Descricao">
+            </div>
+            <div class="form-group">
+                <label for="profissao">Profissão</label>
+                <input type="text" class="form-control" id="profissao" placeholder="Profissão">
+            </div>
+            <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+        </form>
+    </div>
+</body>
 </html>
