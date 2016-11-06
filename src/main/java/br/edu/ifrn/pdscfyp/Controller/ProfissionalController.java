@@ -54,7 +54,7 @@ public class ProfissionalController {
         return "cadastrarProfissional";
     }
 
-    @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
+    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
     public String CadastroProfissional(@RequestParam("nome") String nome,
             @RequestParam("email") String email, @RequestParam("login") String login,
             @RequestParam("senha") String senha, @RequestParam("descricao") String descricao, 
