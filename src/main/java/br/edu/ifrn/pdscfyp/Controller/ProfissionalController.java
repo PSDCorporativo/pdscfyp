@@ -103,7 +103,7 @@ public class ProfissionalController {
 
         model.addAttribute("profissionais", profissionais);
 
-        return "listProfissionaisSecretos";
+        return "listProfissionaisSecreto";
     }
 
 }
