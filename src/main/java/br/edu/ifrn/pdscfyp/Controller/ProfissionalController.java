@@ -7,6 +7,7 @@ package br.edu.ifrn.pdscfyp.Controller;
 
 import br.edu.ifrn.pdscfyp.Model.Profissional;
 import java.util.Set;
+import java.util.TreeSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,6 +45,14 @@ public class ProfissionalController {
 
     @RequestMapping("/ranking")
     public String RankingProfissionais(Model model) {
+        Set<Profissional> profissionais = Profissional.getProfissionais();
+        Set<Profissional> profissionaisOrdenados = new TreeSet();
+
+        for (Profissional p : profissionais) {
+            profissionaisOrdenados.add(p);
+        }
+
+        model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
 
         return "rankingProfissionais";
     }
@@ -57,12 +66,32 @@ public class ProfissionalController {
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     public String CadastroProfissional(@RequestParam("nome") String nome,
             @RequestParam("email") String email, @RequestParam("login") String login,
-            @RequestParam("senha") String senha, @RequestParam("descricao") String descricao, 
+            @RequestParam("senha") String senha, @RequestParam("descricao") String descricao,
             @RequestParam("profissao") String profisao) {
 
         Profissional p = new Profissional(nome, email, login, senha, 0, descricao, profisao, 0, 0, 0);
         Profissional.addProfissional(p);
 
         return "cadastrarProfissional";
+    }
+    @RequestMapping(value = "/secadastrar", method = RequestMethod.GET)
+    public String Cadastro() {
+        
+        return "cadastroSecreto";
+    }
+
+    @RequestMapping(value = "/scadastrar", method = RequestMethod.POST)
+    public String CadastroProfissionalSecreto(@RequestParam("nome") String nome,
+            @RequestParam("email") String email, @RequestParam("login") String login,
+            @RequestParam("senha") String senha,@RequestParam("idNacional") int idNacional, 
+            @RequestParam("descricao") String descricao, @RequestParam("profissao") String profisao,
+            @RequestParam("latitude") float latitude, @RequestParam("longitude") float longitude,
+            @RequestParam("pontuacao") int pontuacao) {
+
+        Profissional p = new Profissional(nome, email, login, senha, idNacional, descricao, profisao, latitude, longitude, pontuacao);
+   
+        Profissional.addProfissionalSecreto(p);
+
+        return "cadastroSecreto";
     }
 }
