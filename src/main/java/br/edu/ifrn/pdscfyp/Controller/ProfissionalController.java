@@ -74,24 +74,36 @@ public class ProfissionalController {
 
         return "cadastrarProfissional";
     }
+
     @RequestMapping(value = "/secadastrar", method = RequestMethod.GET)
     public String Cadastro() {
-        
+
         return "cadastroSecreto";
     }
 
     @RequestMapping(value = "/scadastrar", method = RequestMethod.POST)
     public String CadastroProfissionalSecreto(@RequestParam("nome") String nome,
             @RequestParam("email") String email, @RequestParam("login") String login,
-            @RequestParam("senha") String senha,@RequestParam("idNacional") int idNacional, 
+            @RequestParam("senha") String senha, @RequestParam("idNacional") int idNacional,
             @RequestParam("descricao") String descricao, @RequestParam("profissao") String profisao,
             @RequestParam("latitude") float latitude, @RequestParam("longitude") float longitude,
             @RequestParam("pontuacao") int pontuacao) {
 
         Profissional p = new Profissional(nome, email, login, senha, idNacional, descricao, profisao, latitude, longitude, pontuacao);
-   
+
         Profissional.addProfissionalSecreto(p);
 
         return "cadastroSecreto";
     }
+
+    @RequestMapping("/sprofissionais")
+    public String ListProfissionaisSecretos(Model model) {
+
+        Set<Profissional> profissionais = Profissional.getProfissionais();
+
+        model.addAttribute("profissionais", profissionais);
+
+        return "listProfissionaisSecretos";
+    }
+
 }
