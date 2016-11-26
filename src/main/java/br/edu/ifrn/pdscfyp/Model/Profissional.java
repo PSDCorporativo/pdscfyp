@@ -22,51 +22,31 @@ import lombok.Setter;
 @Setter
 public class Profissional implements Comparable<Profissional> {
 
-    private int id;
-    private String nome;
-    private String email;
-    private String login;
-    private String senha;
-    private int idNacional;
+    private Long id;
+    private Usuario usuario;
     private String descricao;
     private String profissao;
-    private float logintude;
-    private float latitude;
     private int pontuacao;
 
+    public Profissional() {
+    }
+
     public Profissional(String nome, String email, String login, String senha,
-            int idNacional, String descricao, String profissao, float latitude,
-            float logintude, int pontuacao) {
-        this.senha = senha;
+            boolean isProfissional, String rua, String cep, String numero,
+            String complemento, String cidade, String estado,
+            String descricao, String profissao) {
+
+        this.usuario = new Usuario(nome, email, login, senha, isProfissional,
+                rua, cep, numero, complemento, cidade, estado);
         this.profissao = profissao;
-        this.email = email;
-        this.idNacional = idNacional;
-        this.profissao = profissao;
-        this.login = login;
-        this.nome = nome;
-        this.latitude = latitude;
-        this.logintude = logintude;
-        this.pontuacao = pontuacao;
+        this.descricao = descricao;
+        this.pontuacao = 0;
     }
 
     @Override
     public int compareTo(Profissional p) {
-        if (this.pontuacao > p.pontuacao) {
-            return -1;
-        } else {
-            return 1;
-        }
+        return 1;
     }
-
-//    public static Set<Profissional> getProfissionais() {
-//        Client c = Client.create();
-//        WebResource wr = c.resource("http://apifindyourpro-pdsfyp.rhcloud.com/API_FindYourPro/webresources/ws/Profissionais/list");
-//        String json = wr.get(String.class);
-//
-//        Gson gson = new Gson();
-//        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
-//        }.getType());
-//    }
     public static Profissional getProfissionalByLogin(String login) {
         Client c = Client.create();
         WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login=" + login);
