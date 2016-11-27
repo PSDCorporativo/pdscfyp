@@ -91,7 +91,7 @@
         <!--End Header-->
 
         <!-- Inicio pagina inicial-->
-
+        <p><span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p> 
         <div id="container">
 
             <section id="services" class="service-item">
