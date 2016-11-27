@@ -20,14 +20,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(HttpSession session, Model model) {
 
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
-        
+
         model.addAttribute("usuarioLogado", u);
 
         return "index";
+    }
+
+    @RequestMapping("/")
+    public String indexDois(HttpSession session, Model model) {
+        return "redirect:index";
     }
 
     @RequestMapping("/logout")
@@ -43,7 +48,7 @@ public class MainController {
 
         Usuario u = Usuario.login(login, senha);
         session.setAttribute("usuarioLogado", u);
-        
+
         return "redirect:index";
     }
 
