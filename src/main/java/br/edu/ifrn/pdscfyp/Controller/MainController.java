@@ -30,17 +30,12 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-    
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
 
         session.setAttribute("usuarioLogado", null);
 
-        return "index";
+        return "redirect:index";
     }
 
     @RequestMapping(value = "/logon", method = RequestMethod.POST)
@@ -49,12 +44,7 @@ public class MainController {
         Usuario u = Usuario.login(login, senha);
         session.setAttribute("usuarioLogado", u);
         
-
-        if (u != null) {
-            return "index";
-        } else {
-            return "index";
-        }
+        return "redirect:index";
     }
 
 }
