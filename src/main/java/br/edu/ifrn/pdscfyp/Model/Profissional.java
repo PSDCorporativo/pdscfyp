@@ -47,6 +47,7 @@ public class Profissional implements Comparable<Profissional> {
     public int compareTo(Profissional p) {
         return 1;
     }
+
     public static Profissional getProfissionalByLogin(String login) {
         Client c = Client.create();
         WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalByLogin?login=" + login);
@@ -78,14 +79,13 @@ public class Profissional implements Comparable<Profissional> {
                 type("application/json").post(ClientResponse.class, gson.toJson(p));
     }
 
-    public static void addProfissionalSecreto(Profissional p) {
+    public static Set<Profissional> getProfissionaisByProfissao(String profissao) {
         Client c = Client.create();
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/ListProfissionaisByProfissao?profissao=" + profissao);
+        String json = wr.get(String.class);
 
         Gson gson = new Gson();
-
-        WebResource wr = c.resource("https://apifyp.herokuapp.com/AdicionarProfissional");
-
-        ClientResponse cr = wr.accept("application/json").
-                type("application/json").post(ClientResponse.class, gson.toJson(p));
+        return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
+        }.getType());
     }
 }

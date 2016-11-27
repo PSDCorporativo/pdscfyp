@@ -9,6 +9,7 @@ import br.edu.ifrn.pdscfyp.Model.Profissional;
 import br.edu.ifrn.pdscfyp.Model.Usuario;
 import java.util.Set;
 import java.util.TreeSet;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -84,6 +85,20 @@ public class ProfissionalController {
             Usuario.addUsuario(u);
         }
 
+        return "index";
+    }
+
+    @RequestMapping(value = "/buscar", method = RequestMethod.GET)
+    public String Bsucar(HttpSession session, Model model, @RequestParam("profissao") String profissao) {
+        Set<Profissional> profissionais = Profissional.getProfissionaisByProfissao(profissao);
+        Set<Profissional> profissionaisOrder = new TreeSet();
+        
+        for (Profissional profissional : profissionais) {
+            profissionaisOrder.add(profissional);
+        }
+        
+        model.addAttribute("profissionais", profissionaisOrder);
+        
         return "index";
     }
 }
