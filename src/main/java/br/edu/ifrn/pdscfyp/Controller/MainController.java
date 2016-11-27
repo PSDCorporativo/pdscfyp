@@ -36,7 +36,7 @@ public class MainController {
     }
     
     @RequestMapping("/logout")
-    public String login(HttpSession session) {
+    public String logout(HttpSession session) {
 
         session.setAttribute("usuarioLogado", null);
 
