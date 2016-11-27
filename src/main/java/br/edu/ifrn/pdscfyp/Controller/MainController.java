@@ -25,7 +25,7 @@ public class MainController {
 
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
         
-        model.addAttribute("usuarioLogado", Usuario.login("mateusocb", "geladeira123"));
+        model.addAttribute("usuarioLogado", u);
 
         return "index";
     }
