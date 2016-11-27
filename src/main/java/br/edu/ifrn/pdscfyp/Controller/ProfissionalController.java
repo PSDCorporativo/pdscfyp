@@ -99,6 +99,6 @@ public class ProfissionalController {
         
         model.addAttribute("profissionais", profissionaisOrder);
         
-        return "index";
+        return "buscar";
     }
 }
