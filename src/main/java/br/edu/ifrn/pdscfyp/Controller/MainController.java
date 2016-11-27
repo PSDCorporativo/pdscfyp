@@ -53,7 +53,7 @@ public class MainController {
         if (u != null) {
             return "index";
         } else {
-            return "login";
+            return "index";
         }
     }
 
