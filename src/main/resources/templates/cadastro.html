@@ -63,7 +63,7 @@
                 document.getElementById('complemento').style.display = mostrar;
                 document.getElementById('cidade').style.display = mostrar;
                 document.getElementById('descricao').style.display = mostrar;
-                document.getElementById('Profissao').style.display = mostrar;
+                document.getElementById('profissao').style.display = mostrar;
 
             }
         </script>
@@ -79,7 +79,7 @@
                 document.getElementById('complemento').style.display = 'none';
                 document.getElementById('cidade').style.display = 'none';
                 document.getElementById('descricao').style.display = 'none';
-                document.getElementById('Profissao').style.display = 'none';
+                document.getElementById('profissao').style.display = 'none';
 
             }
         </script>
@@ -156,7 +156,7 @@
                     <label for="senha">Senha</label>
                     <input type="password" class="form-control" name="senha" placeholder="Senha" />
                 </div>
-                
+
                 <br />
 
                 <label class="radio-inline"><input type="radio" name="isProfissional" onclick="ocultarMostrar(this)" value="usuario" checked="" />Usuario</label>	
@@ -194,17 +194,23 @@
 
                     <textarea class="form-control" id="descricao" name="descricao"></textarea>
                 </div>
-                <div class="form-group" id="Profissao" style="display:none">
-                    <label class="col-md-4 control-label" for="selectbasic">Profissão</label>
 
-                    <select id="selectbasic" name="selectbasic" class="form-control">
-                        <option value="1">Técnico em Informática</option>
-                        <option value="2">Marceneiro</option>
-                        <option value="3">Eletricista</option>
-                        <option value="4">Encanador</option>
-                    </select>
-
+                <div class="form-group" id="profissao" style="display:none">
+                    <label for="profissao">Profissão</label>
+                    <input type="text" class="form-control" name="profissao" placeholder="Profissão" /> 
                 </div>
+                <!--                
+                                <div class="form-group" id="profissao" style="display:none">
+                                    <label class="col-md-4 control-label" for="profissao">Profissão</label>
+                
+                                    <select id="selectbasic" name="profissao" class="form-control">
+                                        <option value="1">Técnico em Informática</option>
+                                        <option value="2">Marceneiro</option>
+                                        <option value="3">Eletricista</option>
+                                        <option value="4">Encanador</option>
+                                    </select>
+                
+                                </div>-->
                 <button type="submit" class="btn btn-primary col-md-12">Enviar</button>
             </form>
         </div>

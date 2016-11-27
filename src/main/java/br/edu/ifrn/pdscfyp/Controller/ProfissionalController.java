@@ -86,7 +86,7 @@ public class ProfissionalController {
         if ("profissional".equals(isProfissional)) {
 
             Profissional p = new Profissional(nome, email, login, senha, true,
-                    rua, cep, numero, complemento, cidade, estado, descricao, this.getProfissao(profissao));
+                    rua, cep, numero, complemento, cidade, estado, descricao, profissao);
 
             Profissional.addProfissional(p);
         } else {
@@ -97,19 +97,6 @@ public class ProfissionalController {
         }
 
         return "cadastrarProfissional";
-    }
-
-    private String getProfissao(String type) {
-        switch (type) {
-            case "1":
-                return "Técnico em Informática";
-            case "2":
-                return "Marceneiro";
-            case "3":
-                return "Eletricista";
-            default:
-                return "Encanador";
-        }
     }
 
     @RequestMapping(value = "/secadastrar", method = RequestMethod.GET)
