@@ -67,7 +67,7 @@
                     </a>
                 </div>
                 <!--End Site Logo-->
-                <div th:if="${usuarioLogado != null}">
+                <div th:if="${usuarioLogado == null}">
                     <nav class="collapse navbar-collapse navbar-right">
                         <ul class="nav nav-pills nav-main" id="mainMenu">
 
@@ -88,7 +88,7 @@
                         </ul>
                     </nav>
                 </div>
-                <h1>Olá, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></h1>            
+                <h1 th:if="${usuarioLogado != null}">Olá, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></h1>            
             </div>
         </header>
         <!--End Header-->
