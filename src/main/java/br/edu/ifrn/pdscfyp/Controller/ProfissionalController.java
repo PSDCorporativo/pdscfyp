@@ -32,7 +32,7 @@ public class ProfissionalController {
 
         model.addAttribute("profissionais", profissionais);
 
-        return "listProfissionais";
+        return "listar";
     }
 
     @RequestMapping("/profissional/{username}")
@@ -60,21 +60,9 @@ public class ProfissionalController {
 
     @RequestMapping("/cadastro")
     public String CadastrarProfissional() {
-
         return "cadastro";
     }
 
-//    @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
-//    public String CadastroProfissional(@RequestParam("nome") String nome,
-//            @RequestParam("email") String email, @RequestParam("login") String login,
-//            @RequestParam("senha") String senha, @RequestParam("descricao") String descricao,
-//            @RequestParam("profissao") String profisao) {
-//
-//        Profissional p = new Profissional(nome, email, login, senha, 0, descricao, profisao, 0, 0, 0);
-//        Profissional.addProfissional(p);
-//
-//        return "cadastrarProfissional";
-//    }
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     public String Cadastro(@RequestParam("nome") String nome,
             @RequestParam("email") String email, @RequestParam("login") String login,
@@ -98,35 +86,4 @@ public class ProfissionalController {
 
         return "index";
     }
-
-    @RequestMapping(value = "/secadastrar", method = RequestMethod.GET)
-    public String Cadastro() {
-
-        return "cadastroSecreto";
-    }
-
-//    @RequestMapping(value = "/scadastrar", method = RequestMethod.POST)
-//    public String CadastroProfissionalSecreto(@RequestParam("nome") String nome,
-//            @RequestParam("email") String email, @RequestParam("login") String login,
-//            @RequestParam("senha") String senha, @RequestParam("idNacional") int idNacional,
-//            @RequestParam("descricao") String descricao, @RequestParam("profissao") String profisao,
-//            @RequestParam("latitude") float latitude, @RequestParam("longitude") float longitude,
-//            @RequestParam("pontuacao") int pontuacao) {
-//
-//        Profissional p = new Profissional(nome, email, login, senha, idNacional, descricao, profisao, latitude, longitude, pontuacao);
-//
-//        Profissional.addProfissionalSecreto(p);
-//
-//        return "cadastroSecreto";
-//    }
-    @RequestMapping("/sprofissionais")
-    public String ListProfissionaisSecretos(Model model) {
-
-        Set<Profissional> profissionais = Profissional.getProfissionais();
-
-        model.addAttribute("profissionais", profissionais);
-
-        return "listProfissionaisSecretos";
-    }
-
 }
