@@ -82,14 +82,23 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="senha" placeholder="Senha" />
                                     </div>
-                                    <button type="submit" class="btn btn-default" href="lista.html">Entrar</button>
+                                    <button type="submit" class="btn btn-default">Entrar</button>
                                 </form>
                             </li>                
                         </ul>
                     </nav>
                 </div>
                 <div th:if="${usuarioLogado != null}" class="collapse navbar-collapse navbar-right">
-                    <p>Olá, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>            
+                    <ul class="nav nav-pills nav-main" id="mainMenu">
+                        <li>
+                            <p>Bem vindo, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>
+                        </li>
+                        <li>
+                            <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logoff" method="get">
+                                <button type="submit" class="btn btn-default">Sair</button>
+                            </form>
+                        </li>                
+                    </ul>
                 </div>
             </div>
         </header>
