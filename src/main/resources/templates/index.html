@@ -88,7 +88,9 @@
                         </ul>
                     </nav>
                 </div>
-                <h1 th:if="${usuarioLogado != null}">Olá, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></h1>            
+                <div th:if="${usuarioLogado != null}" class="collapse navbar-collapse navbar-right">
+                    <p>Olá, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>            
+                </div>
             </div>
         </header>
         <!--End Header-->
