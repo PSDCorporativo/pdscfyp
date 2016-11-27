@@ -1,0 +1,11 @@
+.errorMessage{
+    color:red;
+}
+ 
+.infoMessage{
+    color:blue;
+}
+ 
+.warnMessage{
+    color:orange;
+}

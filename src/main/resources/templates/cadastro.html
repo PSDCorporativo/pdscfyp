@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Find Your Pro</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Find Your Pro">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800,900" rel="stylesheet" type="text/css">
+
+    <!-- Libs projeto anterios -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="css/animate.min.css" rel="stylesheet"></link>
+    <link href="css/prettyPhoto.css" rel="stylesheet"></link>
+    <link href="css/main.css" rel="stylesheet"></link>
+    <link href="css/responsive.css" rel="stylesheet"></link>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="img/ico/apple-touch-icon-144-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="img/ico/apple-touch-icon-114-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="img/ico/apple-touch-icon-72-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed"
+        href="img/ico/apple-touch-icon-57-precomposed.png"></link>
+    </head>
+
+
+
+    <!-- Libs CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/v-nav-menu.css" rel="stylesheet" />
+    <link href="css/v-animation.css" rel="stylesheet" />
+    <link href="css/v-bg-stylish.css" rel="stylesheet" />
+    <link href="css/v-shortcodes.css" rel="stylesheet" />
+    <link href="css/theme-responsive.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Current Page CSS -->
+    <link href="plugins/rs-plugin/css/settings.css" rel="stylesheet" />
+    <link href="plugins/rs-plugin/css/custom-captions.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <script>
+		function Mostrar(chk){
+		var mostrar = 'none';
+		if(chk.checked) mostrar = '';
+
+		document.getElementById('rua').style.display = mostrar ;
+		document.getElementById('cep').style.display = mostrar ;
+		document.getElementById('numero').style.display = mostrar ;
+		document.getElementById('complemento').style.display = mostrar ;
+		document.getElementById('cidade').style.display = mostrar ;
+		document.getElementById('descricao').style.display = mostrar ;
+		document.getElementById('Profissao').style.display = mostrar ;
+
+		}
+	</script>
+	  <script>
+		function ocultarMostrar(chk){
+		var mostrar = 'none';
+		if(chk.checked) mostrar = '';
+
+		document.getElementById('rua').style.display = 'none' ;
+		document.getElementById('cep').style.display = 'none' ;
+		document.getElementById('numero').style.display = 'none' ;
+		document.getElementById('complemento').style.display = 'none' ;
+		document.getElementById('cidade').style.display = 'none' ;
+		document.getElementById('descricao').style.display = 'none' ;
+		document.getElementById('Profissao').style.display = 'none' ;
+
+		}
+	</script>
+
+
+    
+</head>
+
+<body class="no-page-top" id="pgcadastro">
+
+    <!--Header-->
+    <!--Set your own background color to the header-->
+    <header class="header" data-bg-color="rgba(9, 103, 139, 0.36)" data-font-color="#fff">
+        <div class="container">
+
+            <!--Site Logo-->
+            <div class="logo" data-sticky-logo="img/logoMenor.png" data-normal-logo="img/logo.png">
+                <a href="index.html">
+                    <img alt="Find Your Pro" src="img/logo-black.png" data-logo-height="65">
+                </a>
+            </div>
+            <!--End Site Logo-->
+
+            <!-- NavBar -->
+                <nav class="collapse navbar-collapse navbar-right">
+                    <ul class="nav nav-pills nav-main" id="mainMenu">
+                        
+                        <li>
+                            <a data-hash href="#cadastro"><i class="navbar-form navbar-left"></i>Registre-se</a>
+                        </li>
+                        <li>
+                            <form class="navbar-form navbar-left" style="padding-top: 15px">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="Login">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="senha" placeholder="Senha" />
+                                    </div>
+                                    <button  class="btn btn-default" href="lista.html">Entrar</button>
+                                  </form>
+                        </li>                
+                    </ul>
+                </nav>
+            <!-- End NavBar -->
+
+        </div>
+    </header>
+    <!--End Header-->
+
+    <!-- Inicio pagina inicial-->
+
+
+   
+        <div class="panel-heading"  >
+	        <div class="panel-title text-center" >
+	               	<h1 class="title" style="color: #fff">Cadastre-se</h1> 
+	               	<h2 style="color: #fff">Encontre o profissional que você precisa, ou se torne um profissional bem sucedido!</h2>
+	            <hr />
+			</div>
+	    </div> 
+        
+        <div class="col-md-4 col-md-offset-4" id="divCadastro">
+            <form method="POST" action="/cadastrar">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" placeholder="Nome" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" />
+                </div>
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" class="form-control" name="login" placeholder="Login" />
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Senha" />
+                </div>
+                <div class="form-group">
+                    <label for="senha">Confirmar Senha</label>
+                    <input type="password" class="form-control" name="ConfirmarSenha" placeholder="Confirmar Senha" />
+                </div>
+                <br/>
+                
+                <label class="radio-inline"><input type="radio" name="isProfissional" onclick="ocultarMostrar(this)" value="usuario" />Usuario</label>	
+                <label class="radio-inline"><input type="radio" name="isProfissional" onclick="Mostrar(this)" value="profissional" />Profissional</label>
+				
+                	
+				<br/>
+                <br/>
+                <div id="rua" style="display:none" class="form-group">
+                    <label for="rua">Rua</label>
+                    <input type="text" class="form-control" name="rua" placeholder="Rua" />
+                </div>
+                <div id="cep" class="form-group" style="display:none">
+                    <label for="cep">Cep</label>
+                    <input type="text" class="form-control" name="cep" placeholder="Cep" /> 
+                </div>
+                <div class="form-group" id="numero" style="display:none">
+                    <label for="numero">Número</label>
+                    <input type="text" class="form-control" name="numero" placeholder="Número" /> 
+                </div>
+                <div class="form-group" id="complemento" style="display:none">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" name="complemento" placeholder="Complemento" /> 
+                </div>
+                <div class="form-group" id="cidade" style="display:none">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" name="cidade" placeholder="Cidade" /> 
+                </div>
+                <div class="form-group" id="estado" style="display:none">
+                    <label for="estado">Estado</label>
+                    <input type="text" class="form-control" name="estado" placeholder="Estado" /> 
+                </div>
+                <div class="form-group" id="descricao" style="display:none">
+                    <label for="descricao">Descrição</label>
+                    
+                    <textarea class="form-control" id="descricao" name="descricao"></textarea>
+                </div>
+                <div class="form-group" id="Profissao" style="display:none">
+				  <label class="col-md-4 control-label" for="selectbasic">Profissão</label>
+				 
+				    <select id="selectbasic" name="selectbasic" class="form-control">
+				      <option value="1">Técnico em Informática</option>
+				      <option value="2">Marceneiro</option>
+				      <option value="3">Eletricista</option>
+				      <option value="4">Encanador</option>
+				    </select>
+				 
+				</div>
+                <button type="submit" class="btn btn-primary col-md-12">Enviar</button>
+            </form>
+        </div>
+        
+            
+        <!--End Footer-Wrap-->
+    
+
+	    <!--// BACK TO TOP //-->
+	    <div id="back-to-top" class="animate-top"><i class="fa fa-angle-up"></i></div>
+
+	    <!-- Libs -->
+
+	    <script src="js/jquery.prettyPhoto.js"></script>
+	    <script src="js/main.js"></script>
+	    <script src="js/wow.min.js"></script>
+
+
+
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/jquery.flexslider-min.js"></script>
+	    <script src="js/jquery.easing.js"></script>
+	    <script src="js/jquery.fitvids.js"></script>
+	    <script src="js/jquery.carouFredSel.min.js"></script>
+	    <script src="js/theme-plugins.js"></script>
+	    <script src="js/jquery.isotope.min.js"></script>
+	    <script src="js/imagesloaded.js"></script>
+
+	    <script src="js/view.min.js?auto"></script>
+
+	    <script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	    <script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	    <script src="js/theme-core.js"></script>
+	</body>
+</html>

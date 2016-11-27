@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Find Your Pro</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Find Your Pro">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800,900" rel="stylesheet" type="text/css">
+
+    <!-- Libs projeto anterios -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="css/animate.min.css" rel="stylesheet"></link>
+    <link href="css/prettyPhoto.css" rel="stylesheet"></link>
+    <link href="css/main.css" rel="stylesheet"></link>
+    <link href="css/responsive.css" rel="stylesheet"></link>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="img/ico/apple-touch-icon-144-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="img/ico/apple-touch-icon-114-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="img/ico/apple-touch-icon-72-precomposed.png"></link>
+    <link rel="apple-touch-icon-precomposed"
+        href="img/ico/apple-touch-icon-57-precomposed.png"></link>
+    </head>
+
+
+
+    <!-- Libs CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/v-nav-menu.css" rel="stylesheet" />
+    <link href="css/v-animation.css" rel="stylesheet" />
+    <link href="css/v-bg-stylish.css" rel="stylesheet" />
+    <link href="css/v-shortcodes.css" rel="stylesheet" />
+    <link href="css/theme-responsive.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Current Page CSS -->
+    <link href="plugins/rs-plugin/css/settings.css" rel="stylesheet" />
+    <link href="plugins/rs-plugin/css/custom-captions.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="no-page-top">
+
+    <!--Header-->
+    <!--Set your own background color to the header-->
+    <header class="header" data-bg-color="rgba(9, 103, 139, 0.36)" data-font-color="#fff">
+        <div class="container">
+
+            <!--Site Logo-->
+            <div class="logo" data-sticky-logo="img/logoMenor.png" data-normal-logo="img/logo.png">
+                <a href="index.html">
+                    <img alt="Find Your Pro" src="img/logo-black.png" data-logo-height="65">
+                </a>
+            </div>
+            <!--End Site Logo-->
+
+            <!-- NavBar -->
+	    <nav class="collapse navbar-collapse navbar-right">
+	      <ul class="nav nav-pills nav-main" id="mainMenu">
+		
+		<li>
+		  <a data-hash href="#cadastro"><i class="navbar-form navbar-left"></i>Registre-se</a>
+		</li>
+		<li>
+		  <form class="navbar-form navbar-left" style="padding-top: 15px">
+		    <div class="form-group">
+		      <input type="text" class="form-control" placeholder="Login">
+		    </div>
+		    <div class="form-group">
+		      <input type="password" class="form-control" name="senha" placeholder="Senha" />
+		    </div>
+		    <button  class="btn btn-default" href="lista.html">Entrar</button>
+		  </form>
+		</li>                
+	      </ul>
+	    </nav>
+	    <!-- End NavBar -->
+
+	</div>
+    </header>
+    <!--End Header-->
+
+    <!-- Inicio pagina inicial-->
+
+    <div id="container">
+	
+    <section id="services" class="service-item">
+	<div class="container" style="padding-top: 30px">
+            <div class="center wow fadeInDown">
+                <h2>Find You Pro</h2>
+                <p class="lead">Encontre seu Profissional de maneira rápida e prática</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4">
+                    <a href="cadastro.html">
+                    <div class="media services-wrap wow fadeInDown">
+                    
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services1.png" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Eu sou Cliente!</h3>
+                            <p>Cadastre-se de modo fácil e encontre seu profissional!</p>
+                        </div>
+                      
+                    </div>
+                      </a>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                 <a href="listadeprofissionais.html">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services2.png" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Serviço rápido</h3>
+                            <p>Encontre o profissional mais próximo a você</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                 <a href="listadeprofissionais.html">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services3.png" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Eu sou Profissional</h3>
+                            <p>Cadastre-se aqui e divulgue seu trabalho!</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                 <a href="listar.html">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services4.png">
+                            </img>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Boas Ideias</h3>
+                            <p>Divulgue seu trabalho de forma fácil!</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                 <a href="listadeprofissionais.html">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services5.png" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">A um click</h3>
+                            <p>Os melhores profissionais a um click de você!</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                 <a href="listadeprofissionais.html">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="img/services/services6.png" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Marketing</h3>
+                            <p>Divulgue sua empresa e cresça com o Find Your Pro</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </section>
+
+    </div>
+    
+    <div id="container">
+
+        <!--Set your own slider options. Look at the v_RevolutionSlider() function in 'theme-core.js' file to see options-->
+        <div class="home-slider-wrap fullwidthbanner-container" id="home">
+            <div class="v-rev-slider" data-slider-options='{ "startheight": 700 }'>
+
+                <ul>
+
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="600">
+
+                        <img src="img/slider/image2.png" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                        <div class="tp-caption v-caption-big-white sfl stl"
+                            data-x="450"
+                            data-y="245"
+                            data-speed="600"
+                            data-start="600"
+                            data-easing="Power1.easeInOut"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0"
+                            data-endelementdelay="0"
+                            data-endspeed="300">
+                            FIND YOUR PRO
+                        </div>
+
+                        <div class="tp-caption v-caption-h1 sfl stl"
+                            data-x="450"
+                            data-y="360"
+                            data-speed="700"
+                            data-start="1200"
+                            data-easing="Power1.easeInOut"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0"
+                            data-endelementdelay="0"
+                            data-endspeed="300">
+                            Encontre profissionais próximos a você em poucos cliques.<br>
+                            Cadastre-se como profissional e atenda a chamados dos clientes.
+                        </div>
+
+                        <div class="tp-caption sfl stl"
+                            data-x="450"
+                            data-y="450"
+                            data-speed="600"
+                            data-start="1800"
+                            data-easing="Power1.easeInOut"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0"
+                            data-endelementdelay="0"
+                            data-endspeed="300">
+                            <a data-hash href="#cadastro" class="btn v-btn v-second-light">Cadastre-se</a>
+                        </div>
+
+                        <div class="tp-caption sfl stl"
+                            data-x="605"
+                            data-y="450"
+                            data-speed="600"
+                            data-start="2200"
+                            data-easing="Power1.easeInOut"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0"
+                            data-endelementdelay="0"
+                            data-endspeed="300">
+                            <a data-hash href='#download' class="btn v-btn v-second-light">Baixe Agora</a>
+                        </div>
+
+                        <div class="tp-caption sfl stl"
+                            data-x="110"
+                            data-y="130"
+                            data-speed="600"
+                            data-start="1800"
+                            data-easing="Power1.easeInOut"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-elementdelay="0"
+                            data-endelementdelay="0"
+                            data-endspeed="300">
+                            <!-- <a href='#' class="btn v-btn v-third-light">GET IT NOW!</a> -->
+                            <img src="img/iphone2.png" />
+                        </div>
+
+
+
+                        <!--<div class="v-slider-overlay overlay-colored"></div>-->
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shadow-right"></div>
+        </div>        
+
+    </div>
+           
+            <!--End Cadastro-->
+
+        <!--Footer-Wrap-->
+        <div class="footer-wrap">
+            
+            <div class="copyright">
+                <div class="container">
+                    <p>© Copyright 2016 by Find Your Pro. All Rights Reserved.</p>
+                    
+                </div>
+            </div>
+        </div>
+        <!--End Footer-Wrap-->
+    </div>
+
+    <!--// BACK TO TOP //-->
+    <div id="back-to-top" class="animate-top"><i class="fa fa-angle-up"></i></div>
+
+    <!-- Libs -->
+
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/jquery.carouFredSel.min.js"></script>
+    <script src="js/theme-plugins.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/imagesloaded.js"></script>
+
+    <script src="js/view.min.js?auto"></script>
+
+    <script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="js/theme-core.js"></script>
+</body>
+</html>
