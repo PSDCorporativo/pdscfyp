@@ -96,7 +96,7 @@ public class ProfissionalController {
             Usuario.addUsuario(u);
         }
 
-        return "cadastrarProfissional";
+        return "index";
     }
 
     @RequestMapping(value = "/secadastrar", method = RequestMethod.GET)
