@@ -74,14 +74,14 @@
                             <a href="/cadastro"><i class="navbar-form navbar-left"></i>Registre-se</a>
                         </li>
                         <li>
-                            <form class="navbar-form navbar-left" style="padding-top: 15px">
+                            <form class="navbar-form navbar-left" style="padding-top: 15px" action="/login" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Login" />
+                                    <input type="text" class="form-control" placeholder="Login" name="login" />
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="senha" placeholder="Senha" />
                                 </div>
-                                <button  class="btn btn-default" href="lista.html">Entrar</button>
+                                <button type="submit" class="btn btn-default" href="lista.html">Entrar</button>
                             </form>
                         </li>                
                     </ul>
