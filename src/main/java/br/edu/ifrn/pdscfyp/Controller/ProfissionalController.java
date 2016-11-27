@@ -92,7 +92,7 @@ public class ProfissionalController {
         } else {
             Usuario u = new Usuario(nome, email, login, senha, false, rua, cep,
                     numero, complemento, cidade, estado);
-            
+
             Usuario.addUsuario(u);
         }
 
@@ -119,7 +119,6 @@ public class ProfissionalController {
 //
 //        return "cadastroSecreto";
 //    }
-
     @RequestMapping("/sprofissionais")
     public String ListProfissionaisSecretos(Model model) {
 

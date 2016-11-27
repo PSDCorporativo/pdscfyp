@@ -5,8 +5,13 @@
  */
 package br.edu.ifrn.pdscfyp.Controller;
 
+import br.edu.ifrn.pdscfyp.Model.Usuario;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -14,8 +19,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class MainController {
+
     @RequestMapping("/")
-    public String index() {
+    public String index(HttpSession session, Model model) {
+
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+        
+        model.addAttribute("usuarioLogado", Usuario.login("mateusocb", "geladeira123"));
+
         return "index";
     }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+    
+    @RequestMapping("/logout")
+    public String login(HttpSession session) {
+
+        session.setAttribute("usuarioLogado", null);
+
+        return "index";
+    }
+
+    @RequestMapping(value = "/logon", method = RequestMethod.POST)
+    public String logon(HttpSession session, @RequestParam("login") String login, @RequestParam("senha") String senha) {
+
+        Usuario u = Usuario.login(login, senha);
+        session.setAttribute("usuarioLogado", u);
+        
+
+        if (u != null) {
+            return "index";
+        } else {
+            return "login";
+        }
+    }
+
 }

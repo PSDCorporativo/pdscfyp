@@ -10,7 +10,10 @@ import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import javax.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -72,6 +75,19 @@ public class Usuario implements Comparable<Usuario> {
 
         ClientResponse cr = wr.accept("application/json").
                 type("application/json").post(ClientResponse.class, gson.toJson(u));
+    }
+
+    public static Usuario login(String login, String senha) {
+        
+        Client c = Client.create();
+
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/Login?login=" + login + "&senha=" + senha);
+        String json = wr.get(String.class);
+
+        Gson gson = new Gson();
+        
+        return gson.fromJson(json, new TypeToken<Usuario>() {
+        }.getType());
     }
 
     @Override
