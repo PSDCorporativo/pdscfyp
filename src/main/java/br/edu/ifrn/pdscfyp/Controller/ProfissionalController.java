@@ -49,8 +49,9 @@ public class ProfissionalController {
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
         }
-
+        
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
+
 
         return "ranking";
     }
