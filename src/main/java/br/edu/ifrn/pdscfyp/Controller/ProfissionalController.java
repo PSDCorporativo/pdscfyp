@@ -12,9 +12,7 @@ import java.util.TreeSet;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,18 +36,13 @@ public class ProfissionalController {
 
         return "listar";
     }
-
-    @RequestMapping("/profissional/{username}")
-    public String getProfissional(@PathVariable("username") String username, Model model) {
-        Profissional p = Profissional.getProfissionalByLogin(username);
-
-        model.addAttribute("profissional", p);
-
-        return "showProfissional";
-    }
-
+    
     @RequestMapping("/ranking")
-    public String RankingProfissionais(Model model) {
+    public String RankingProfissionais(HttpSession session, Model model) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+        
         Set<Profissional> profissionais = Profissional.getProfissionais();
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
@@ -59,7 +52,16 @@ public class ProfissionalController {
 
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
 
-        return "rankingProfissionais";
+        return "ranking";
+    }
+
+    @RequestMapping("/mapa")
+    public String MostrarMapa(HttpSession session, Model model) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+
+        return "mapa";
     }
 
     @RequestMapping("/cadastro")
@@ -92,7 +94,7 @@ public class ProfissionalController {
             Usuario.addUsuario(u);
         }
 
-        return "index";
+        return "redirect:index";
     }
 
     @RequestMapping(value = "/buscar", method = RequestMethod.GET)
