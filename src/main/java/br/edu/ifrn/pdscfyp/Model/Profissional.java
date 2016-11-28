@@ -45,7 +45,13 @@ public class Profissional implements Comparable<Profissional> {
 
     @Override
     public int compareTo(Profissional p) {
-        return 1;
+        if (this.pontuacao > p.getPontuacao()) {
+            return 1;
+        } else if (this.pontuacao < p.getPontuacao()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     public static Profissional getProfissionalByLogin(String login) {

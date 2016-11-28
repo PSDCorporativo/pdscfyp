@@ -161,11 +161,16 @@
                                 <th>Profissão</th>
                                 <th>Nome</th>
                                 <th>Email</th>
-                                <th>Telefone</th>
-
                             </tr>
                         </thead>
                         <tbody>
+                            <tr th:each="profissional : ${profissionais}">
+                                <td><p>1</p></td>
+                                <td><span th:text="${profissional.pontuacao}"></span></td>                                                                                      
+                                <td><span th:text="${profissional.profissao}"></span></td>                                                                                           
+                                <td><span th:text="${profissional.usuario.nome}"></span></td>                                                                                           
+                                <td><span th:text="${profissional.usuario.email}"></span></td>                                                                                           
+                            </tr>
                         </tbody>
                     </table>
                 </div>
