@@ -80,31 +80,39 @@
                     </a>
                 </div>
                 <!--End Site Logo-->
+                <div th:if="${usuarioLogado == null}">
+                    <nav class="collapse navbar-collapse navbar-right">
+                        <ul class="nav nav-pills nav-main" id="mainMenu">
 
-                <!-- NavBar -->
-                <nav class="collapse navbar-collapse navbar-right">
+                            <li>
+                                <a href="/cadastro"><i class="navbar-form navbar-left"></i>Registre-se</a>
+                            </li>
+                            <li>
+                                <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logon" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Login" name="login" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="senha" placeholder="Senha" />
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Entrar</button>
+                                </form>
+                            </li>                
+                        </ul>
+                    </nav>
+                </div>
+                <div th:if="${usuarioLogado != null}" class="collapse navbar-collapse navbar-right">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
-
-
-                        <li id="inicio1"><a id="inicio" href="#">Inicio
-                            </a></li>
-                        <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <h:graphicImage class="nav-avatar" library="images" name="img/user.png" />
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="main.xhtml">Perfil</a></li>
-                                <li><a href="#">Editar Perfil</a></li>
-                                <li><a href="#">Configurações</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Sair</a></li>
-
-                            </ul></li>               
+                        <li class="text-center">
+                            <p>Bem vindo, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>
+                        </li>
+                        <li>
+                            <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logout" method="get">
+                                <button type="submit" class="btn btn-default">Sair</button>
+                            </form>
+                        </li>                
                     </ul>
-
-                </nav>
-                <!-- End NavBar -->
-
+                </div>
             </div>
         </header>
         <!--End Header-->

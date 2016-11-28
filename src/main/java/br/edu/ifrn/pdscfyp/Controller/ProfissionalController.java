@@ -27,7 +27,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProfissionalController {
 
     @RequestMapping("/profissionais")
-    public String ListProfissionais(Model model) {
+    public String ListProfissionais(HttpSession session, Model model) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
 
         Set<Profissional> profissionais = Profissional.getProfissionais();
 
@@ -60,7 +63,11 @@ public class ProfissionalController {
     }
 
     @RequestMapping("/cadastro")
-    public String CadastrarProfissional() {
+    public String CadastrarProfissional(HttpSession session, Model model) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+
         return "cadastro";
     }
 
@@ -89,16 +96,20 @@ public class ProfissionalController {
     }
 
     @RequestMapping(value = "/buscar", method = RequestMethod.GET)
-    public String Bsucar(HttpSession session, Model model, @RequestParam("profissao") String profissao) {
+    public String Buscar(HttpSession session, Model model, @RequestParam("profissao") String profissao) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+
         Set<Profissional> profissionais = Profissional.getProfissionaisByProfissao(profissao);
         Set<Profissional> profissionaisOrder = new TreeSet();
-        
+
         for (Profissional profissional : profissionais) {
             profissionaisOrder.add(profissional);
         }
-        
+
         model.addAttribute("profissionais", profissionaisOrder);
-        
+
         return "buscar";
     }
 }
