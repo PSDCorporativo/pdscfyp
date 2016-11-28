@@ -46,9 +46,9 @@ public class Profissional implements Comparable<Profissional> {
     @Override
     public int compareTo(Profissional p) {
         if (this.pontuacao > p.getPontuacao()) {
-            return 1;
-        } else if (this.pontuacao < p.getPontuacao()) {
             return -1;
+        } else if (this.pontuacao < p.getPontuacao()) {
+            return 1;
         } else {
             return 0;
         }
