@@ -101,7 +101,7 @@
                 <div th:if="${usuarioLogado != null}" class="collapse navbar-collapse navbar-right">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li class="text-center">
-                            <p>Bem vindo, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>
+                            <p id="bemvindo">Bem vindo, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>
                         </li>
                         <li>
                             <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logout" method="get">
