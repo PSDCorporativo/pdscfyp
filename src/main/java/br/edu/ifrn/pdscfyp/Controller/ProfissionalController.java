@@ -51,9 +51,11 @@ public class ProfissionalController {
         Set<Profissional> profissionais = Profissional.getProfissionais();
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
+        indice = profissionais.size();
+        
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
-            indexes.put(p, ++indice);
+            indexes.put(p, indice--);
         }
 
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
