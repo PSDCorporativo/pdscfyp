@@ -42,16 +42,17 @@ public class ProfissionalController {
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
+        int indice = 0;
         
         Set<Profissional> profissionais = Profissional.getProfissionais();
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
+            model.addAttribute("indice", ++indice);
         }
         
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
-
 
         return "ranking";
     }
