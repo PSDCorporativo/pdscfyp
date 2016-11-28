@@ -7,6 +7,8 @@ package br.edu.ifrn.pdscfyp.Controller;
 
 import br.edu.ifrn.pdscfyp.Model.Profissional;
 import br.edu.ifrn.pdscfyp.Model.Usuario;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.servlet.http.HttpSession;
@@ -36,24 +38,27 @@ public class ProfissionalController {
 
         return "listar";
     }
-    
+
     @RequestMapping("/ranking")
     public String RankingProfissionais(HttpSession session, Model model) {
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
+
+        Map<Profissional, Integer> indexes = new HashMap();
         int indice = 0;
-        
+
         Set<Profissional> profissionais = Profissional.getProfissionais();
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
-            model.addAttribute("indice", ++indice);
+            indexes.put(p, ++indice);
         }
-        
-        model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
 
+        model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
+        model.addAttribute("indexes", indexes);
+        
         return "ranking";
     }
 
