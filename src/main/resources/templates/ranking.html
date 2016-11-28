@@ -165,7 +165,7 @@
                         </thead>
                         <tbody>
                             <tr th:each="profissional : ${profissionaisOrdenados}">
-                                <td><p>1</p></td>
+                                <td><span th:text="${(profissionaisOrdenados.indexOf(profissional) + 1)}"></span></td>                                                                                      
                                 <td><span th:text="${profissional.pontuacao}"></span></td>                                                                                      
                                 <td><span th:text="${profissional.profissao}"></span></td>                                                                                           
                                 <td><span th:text="${profissional.usuario.nome}"></span></td>                                                                                           
