@@ -49,7 +49,7 @@ public class MainController {
         Usuario u = Usuario.login(login, senha);
         session.setAttribute("usuarioLogado", u);
 
-        return "redirect:index";
+        return "redirect:mapa";
     }
 
 }
