@@ -149,19 +149,18 @@
         <div id="page-wrapper">
             <div class="span9">
                 <div class="span9">  
-                  <div class="col-md-4">
-                    <a href="#" class="btn-default"> Ver no Mapa </a>
-                    <br />
-                    <img style="max-width:200px;max-height:150px;width: auto;height: auto;" src="http://tecnologia.culturamix.com/blog/wp-content/uploads/2013/12/Analisando-as-Imagens-do-Perfil1.jpg" />
-                  </div>
-                    <div class="col-md-8 col-md-offset-4">
-                        <p>Nome: <span th:text="${profissional.usuario.nome}"></span></p>
-                        <br />
-                        <p>Profissão: <span th:text="${profissional.profissao}"></span></p>
-                        <br />
-                        <p>Endereço: <span th:text="${profissional.usuario.endereco.rua}"></span></p>
-                        <br />
-                        <p>Descrição: <span th:text="${profissional.descricao}"></span></p>
+                    <div style="padding-top: 8px;">
+                        <div class="col-md-4">
+                            <a href="#" class="btn btn-default"> Ver no Mapa </a>
+                            <br />
+                            <img style="max-width:200px;max-height:150px;width: auto;height: auto;" src="http://tecnologia.culturamix.com/blog/wp-content/uploads/2013/12/Analisando-as-Imagens-do-Perfil1.jpg" />
+                        </div>
+                        <div class="col-md-8">
+                            <p>Nome: <span th:text="${profissional.usuario.nome}"></span></p>
+                            <p>Profissão: <span th:text="${profissional.profissao}"></span></p>
+                            <p>Endereço: <span th:text="${profissional.usuario.endereco.rua}"></span></p>
+                            <p>Descrição: <span th:text="${profissional.descricao}"></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
