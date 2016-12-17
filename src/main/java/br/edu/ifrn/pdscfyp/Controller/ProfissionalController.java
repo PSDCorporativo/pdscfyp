@@ -52,7 +52,7 @@ public class ProfissionalController {
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
         indice = profissionais.size();
-        
+
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
             indexes.put(p, indice--);
@@ -60,7 +60,7 @@ public class ProfissionalController {
 
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
         model.addAttribute("indexes", indexes);
-        
+
         return "ranking";
     }
 
@@ -122,5 +122,18 @@ public class ProfissionalController {
         model.addAttribute("profissionais", profissionaisOrder);
 
         return "buscar";
+    }
+
+    @RequestMapping(value = "/profissional", method = RequestMethod.GET)
+    public String BuscarProfissionalById(HttpSession session, Model model, @RequestParam("id") String idProfissionalString) {
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+
+        Profissional p = Profissional.getProfissionalById(Long.getLong(idProfissionalString));
+        
+        model.addAttribute("profissional", p);
+        
+        return "perfil";
     }
 }

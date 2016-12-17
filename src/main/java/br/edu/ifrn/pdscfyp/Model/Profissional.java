@@ -94,4 +94,14 @@ public class Profissional implements Comparable<Profissional> {
         return gson.fromJson(json, new TypeToken<Set<Profissional>>() {
         }.getType());
     }
+
+    public static Profissional getProfissionalById(Long idProfisisonal) {
+        Client c = Client.create();
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/GetProfissionalById?idProfissional=" + idProfisisonal);
+        String json = wr.get(String.class);
+
+        Gson gson = new Gson();
+        return gson.fromJson(json, new TypeToken<Profissional>() {
+        }.getType());
+    }
 }

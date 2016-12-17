@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Find Your Pro</title>
+        <meta name="keywords" content="HTML5 Template" />
+        <meta name="description" content="Find Your Pro" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Web Fonts  -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800,900" rel="stylesheet" type="text/css" />
+
+        <!-- Libs projeto anterios -->
+        <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="css/font-awesome.min.css" rel="stylesheet"></link>
+        <link href="css/animate.min.css" rel="stylesheet"></link>
+        <link href="css/prettyPhoto.css" rel="stylesheet"></link>
+        <link href="css/main.css" rel="stylesheet"></link>
+        <link href="css/responsive.css" rel="stylesheet"></link>
+        <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.min.js"></script>
+            <![endif]-->
+        <link rel="shortcut icon" href="images/ico/favicon.ico"></link>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144"
+              href="img/ico/apple-touch-icon-144-precomposed.png"></link>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114"
+              href="img/ico/apple-touch-icon-114-precomposed.png"></link>
+        <link rel="apple-touch-icon-precomposed" sizes="72x72"
+              href="img/ico/apple-touch-icon-72-precomposed.png"></link>
+        <link rel="apple-touch-icon-precomposed"
+              href="img/ico/apple-touch-icon-57-precomposed.png"></link>
+
+
+        <!-- MetisMenu CSS -->
+        <link href="css/metisMenu.min.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link href="css/sb-admin-2.css" rel="stylesheet" />
+
+        <!-- Morris Charts CSS -->
+        <link href=".css/morris.css" rel="stylesheet"  />
+
+
+        <!-- Libs CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <link href="css/v-nav-menu.css" rel="stylesheet" />
+        <link href="css/v-animation.css" rel="stylesheet" />
+        <link href="css/v-bg-stylish.css" rel="stylesheet" />
+        <link href="css/v-shortcodes.css" rel="stylesheet" />
+        <link href="css/theme-responsive.css" rel="stylesheet" />
+        <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+        <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+        <!-- Current Page CSS -->
+        <link href="plugins/rs-plugin/css/settings.css" rel="stylesheet" />
+        <link href="plugins/rs-plugin/css/custom-captions.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css" />
+    </head>
+
+    <body class="no-page-top">
+
+        <!--Header-->
+        <!--Set your own background color to the header-->
+	<header class="header" data-bg-color="rgba(9, 103, 139, 0.36)" data-font-color="#fff">
+	    <div class="container">
+
+                <!--Site Logo-->
+                <div class="logo" data-sticky-logo="img/logoMenor.png" data-normal-logo="img/logo.png">
+                    <a href="mapa.html">
+                        <img alt="Find Your Pro" src="img/logo-black.png" data-logo-height="65" />
+                    </a>
+                </div>
+                <!--End Site Logo-->
+                <div th:if="${usuarioLogado == null}">
+                    <nav class="collapse navbar-collapse navbar-right">
+                        <ul class="nav nav-pills nav-main" id="mainMenu">
+
+                            <li>
+                                <a href="/cadastro"><i class="navbar-form navbar-left"></i>Registre-se</a>
+                            </li>
+                            <li>
+                                <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logon" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Login" name="login" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="senha" placeholder="Senha" />
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Entrar</button>
+                                </form>
+                            </li>                
+                        </ul>
+                    </nav>
+                </div>
+                <div th:if="${usuarioLogado != null}" class="collapse navbar-collapse navbar-right">
+                    <ul class="nav nav-pills nav-main" id="mainMenu">
+                        <li class="text-center">
+                            <p id="bemvindo">Bem vindo, <span th:if="${usuarioLogado != null}" th:text="${usuarioLogado.getNome()}"></span></p>
+                        </li>
+                        <li>
+                            <form class="navbar-form navbar-left" style="padding-top: 15px" action="/logout" method="get">
+                                <button type="submit" class="btn btn-default">Sair</button>
+                            </form>
+                        </li>                
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--End Header-->
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li>
+                        <a href="/mapa"><i class="fa fa-tasks  fa-fw" ></i> Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/profissionais"><i class="fa fa-briefcase fa-fw"></i> Listar Profissionais</a>
+                    </li>
+                    <li>
+                        <a href="/ranking"><i class="fa  fa-thumbs-o-up fa-fw"></i> Ranking de Profissionais</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-gear fa-fw"></i> Configuração</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+
+
+
+        <div id="page-wrapper">
+            <div class="span9">
+                <div class="span9">  
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"  >
+                        <div class="panel-title text-center" >
+                            <h1 class="title">Listar Profissionais</h1> 
+
+                            <hr />
+                        </div>
+                    </div> 
+                    <div class="panel-body" id="filtroProf">
+                        <div class="col-sm-3">
+                            Realize filtro nos campos ao lado.
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control" id="ddlTipoProcura">                
+                                <option>Profissão</option>                
+                            </select>
+                        </div>
+                        <form action="/buscar" method="get">
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="txtPesquisa" name="profissao" placeholder="Procurar Profissionais" />
+                            </div>
+                            <div class="col-sm-1">
+                                <button id="btnProcurar" type="submit" class="btn btn-default">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-inverse" id="tabelaListar">
+                        <thead>
+                            <tr class="clickable-row">
+                                <th>Profissão</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>                                                                                                      
+                                <td><span th:text="${profissional.profissao}"></span></td>                                                                                      
+                                <td><span th:text="${profissional.usuario.nome}"></span></td>                                                                                           
+                                <td><span th:text="${profissional.usuario.email}"></span></td>                                                                                           
+                                <td><span th:text="${profissional.pontuacao}"></span></td>                                                                                           
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!--// BACK TO TOP //-->
+        <div id="back-to-top" class="animate-top"><i class="fa fa-angle-up"></i></div>
+
+        <!-- Libs -->
+
+        <script src="js/jquery.prettyPhoto.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/wow.min.js"></script>
+
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.flexslider-min.js"></script>
+        <script src="js/jquery.easing.js"></script>
+        <script src="js/jquery.fitvids.js"></script>
+        <script src="js/jquery.carouFredSel.min.js"></script>
+        <script src="js/theme-plugins.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/imagesloaded.js"></script>
+
+        <script src="js/view.min.js?auto"></script>
+
+        <script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+        <script src="js/theme-core.js"></script>
+    </body>
+</html>
