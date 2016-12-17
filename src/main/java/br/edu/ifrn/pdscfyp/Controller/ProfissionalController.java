@@ -125,12 +125,12 @@ public class ProfissionalController {
     }
 
     @RequestMapping(value = "/profissional", method = RequestMethod.GET)
-    public String BuscarProfissionalById(HttpSession session, Model model, @RequestParam("id") String idProfissionalString) {
+    public String BuscarProfissionalById(HttpSession session, Model model, @RequestParam("id") String id) {
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
 
-        Profissional p = Profissional.getProfissionalById(Long.getLong(idProfissionalString));
+        Profissional p = Profissional.getProfissionalById(id);
         
         model.addAttribute("profissional", p);
         
