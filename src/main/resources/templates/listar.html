@@ -187,7 +187,7 @@
                         <tbody>
                             <tr th:each="profissional : ${profissionais}">                                                                                                      
                                 <td><span th:text="${profissional.profissao}"></span></td>                                                                                      
-                                <td><span th:text="${profissional.usuario.nome}"></span></td>                                                                                           
+                                <td><a th:href="@{/profissional(id=${profissional.id})}"><span th:text="${profissional.usuario.nome}"></span></a></td>                                                                                           
                                 <td><span th:text="${profissional.usuario.email}"></span></td>                                                                                           
                                 <td><span th:text="${profissional.pontuacao}"></span></td>                                                                                           
                             </tr>
