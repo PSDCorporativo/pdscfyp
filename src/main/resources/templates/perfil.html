@@ -70,8 +70,8 @@
 
         <!--Header-->
         <!--Set your own background color to the header-->
-	<header class="header" data-bg-color="rgba(9, 103, 139, 0.36)" data-font-color="#fff">
-	    <div class="container">
+        <header class="header" data-bg-color="rgba(9, 103, 139, 0.36)" data-font-color="#fff">
+            <div class="container">
 
                 <!--Site Logo-->
                 <div class="logo" data-sticky-logo="img/logoMenor.png" data-normal-logo="img/logo.png">
@@ -149,34 +149,16 @@
         <div id="page-wrapper">
             <div class="span9">
                 <div class="span9">  
-                    <!-- Default panel contents -->
-                    <div class="panel-heading"  >
-                        <div class="panel-title text-center" >
-                            <h1 class="title">Perfil do Profissional</h1> 
-
-                            <hr />
-                        </div>
-                    </div> 
-                    
-                    
-                    <table class="table table-inverse" id="tabelaListar">
-                        <thead>
-                            <tr class="clickable-row">
-                                <th>Profissão</th>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Nota</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>                                                                                                      
-                                <td><span th:text="${profissional.profissao}"></span></td>                                                                                      
-                                <td><span th:text="${profissional.usuario.nome}"></span></td>                                                                                           
-                                <td><span th:text="${profissional.usuario.email}"></span></td>                                                                                           
-                                <td><span th:text="${profissional.pontuacao}"></span></td>                                                                                           
-                            </tr>
-                        </tbody>
-                    </table>
+                    <a href="#" class="col-md-4 btn-default"> Ver no Mapa </a>
+                    <br />
+                    <img class="col-md-4" width="150" height="100" src="http://tecnologia.culturamix.com/blog/wp-content/uploads/2013/12/Analisando-as-Imagens-do-Perfil1.jpg" />
+                    <p class="col-md-8 col-md-offset-4">Nome: <span th:text="${profissional.usuario.nome}"></span></p>
+                    <br />
+                    <p class="col-md-8 col-md-offset-4">Profissão: <span th:text="${profissional.profissao}"></span></p>
+                    <br />
+                    <p class="col-md-8 col-md-offset-4">Endereço: <span th:text="${profissional.endereco.rua}"></span></p>
+                    <br />
+                    <p class="col-md-8 col-md-offset-4">Descrição: <span th:text="${profissional.descricao}"></span></p>
                 </div>
             </div>
         </div>
