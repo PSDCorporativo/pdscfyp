@@ -194,18 +194,18 @@
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
 
-                $.getJSON('https://apifyp.herokuapp.com/GetLocalizacoes', function (locations) {
-                    console.log(locations);
-
-                    for (i = 0; i < locations.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                            title: locations[i][0],
-                            map: map,
-                            url: locations[3]
-                        });
-                    }
+                $.getJSON('https://apifyp.herokuapp.com/GetLocalizacoes', function (data) {
+                    locations = data;
                 });
+                
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        title: locations[i][0],
+                        map: map,
+                        url: locations[3]
+                    });
+                }
             }
 
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
