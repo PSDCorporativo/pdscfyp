@@ -180,7 +180,7 @@
                     var locations = /*[[${pontos}]]*/;
                     for (i = 0; i < locations.length; i++) {
             marker = new google.maps.Marker({
-            position: new google.maps.LatLng(Number(locations[i][1]), Number(locations[i][2])),
+            position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
                     map: map,
                     title: locations[i][0],
                     url: locations[i][3]
