@@ -178,7 +178,8 @@
                 });
                 var infoWindow = new google.maps.InfoWindow({map: map});
                 var locations = /*[[${pontos}]]*/;
-                        console.log(locations);''
+                        console.log(locations);
+
                 // Try HTML5 geolocation.
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -197,7 +198,7 @@
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
 
-
+                /*]]>*/
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLRQ_xNODsjWa7Fqzy7SRI2FO4HIkXn7E&amp;signed_in=true&amp;callback=initMap" defer="defer">
