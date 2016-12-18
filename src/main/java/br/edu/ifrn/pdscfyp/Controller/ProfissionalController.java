@@ -7,7 +7,14 @@ package br.edu.ifrn.pdscfyp.Controller;
 
 import br.edu.ifrn.pdscfyp.Model.Profissional;
 import br.edu.ifrn.pdscfyp.Model.Usuario;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -68,7 +75,19 @@ public class ProfissionalController {
     public String MostrarMapa(HttpSession session, Model model) {
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
+        ArrayList<ArrayList<String>> pontos = new ArrayList<>();
+
+        Client c = Client.create();
+        WebResource wr = c.resource("https://apifyp.herokuapp.com/GetLocalizacoes/");
+        String json = wr.get(String.class);
+
+        Gson gson = new Gson();
+        pontos = gson.fromJson(json, new TypeToken<List<List<String>>>() {
+        }.getType());
+        
         model.addAttribute("usuarioLogado", u);
+
+        model.addAttribute("pontos", pontos);
 
         return "mapa";
     }
@@ -131,9 +150,9 @@ public class ProfissionalController {
         model.addAttribute("usuarioLogado", u);
 
         Profissional p = Profissional.getProfissionalById(id);
-        
+
         model.addAttribute("profissional", p);
-        
+
         return "perfil";
     }
 }
