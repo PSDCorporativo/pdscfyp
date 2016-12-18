@@ -182,7 +182,7 @@
 
                 for (i = 0; i < locations.length; i++) {
                     marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(parseFloat(locations[i][1]), locations[i][2]),
+                        position: new google.maps.LatLng(parseFloat(locations[i][1]), paserFloat(locations[i][2])),
                         title: locations[0],
                         map: map,
                         url: locations[3]
