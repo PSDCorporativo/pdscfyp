@@ -166,11 +166,8 @@
         </div>
         <div th:id="map">
         </div>
-        <script>
-            // Note: This example requires that you consent to location sharing when
-            // prompted by your browser. If you see the error "The Geolocation service
-            // failed.", it means you probably did not give permission for the browser to
-            // locate you.
+        <script th:inline="javascript">
+            /*<![CDATA[*/
 
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -197,6 +194,20 @@
                     // Browser doesn't support Geolocation
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
+
+                var locations = [
+                    ['First Shoppe', -5.8115976, -35.2031689],
+                    ['Second Shoppe', -5.8143186, -35.2161118]
+                ];
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        title: locations[i][0],
+                        map: map
+                    });
+                }
+            }
+
             }
 
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -205,7 +216,7 @@
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
             }
-
+            /*]]>*/
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLRQ_xNODsjWa7Fqzy7SRI2FO4HIkXn7E&amp;signed_in=true&amp;callback=initMap" defer="defer">
         </script>
