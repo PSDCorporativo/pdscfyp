@@ -165,6 +165,9 @@
         </div>
         <div th:id="map">
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
         <script th:inline="javascript">
             /*<![CDATA[*/
 
@@ -194,7 +197,10 @@
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
 
-
+                $.getJSON('https://apifyp.herokuapp.com/GetLocalizacoes', function (data) {
+                    locations = data;
+                    console.log(data);
+                });
             }
 
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
