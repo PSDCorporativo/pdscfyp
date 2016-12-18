@@ -33,7 +33,6 @@
         <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png" />
 
 
-
         <style>
             html, body {
                 height: 100%;
@@ -166,7 +165,7 @@
         </div>
         <div th:id="map">
         </div>
-        <script th:inline="javascript">
+        <script th:inline="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
             /*<![CDATA[*/
 
             function initMap() {
@@ -195,17 +194,18 @@
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
 
-                var locations = [
-                    ['First Shoppe', -5.8115976, -35.2031689],
-                    ['Second Shoppe', -5.8143186, -35.2161118]
-                ];
-                for (i = 0; i < locations.length; i++) {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                        title: locations[i][0],
-                        map: map
-                    });
-                }
+                $.getJSON('https://apifyp.herokuapp.com/GetLocalizacoes', function (locations) {
+                    console.log(locations);
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            title: locations[i][0],
+                            map: map,
+                            url: locations[3]
+                        });
+                    }
+                });
             }
 
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
