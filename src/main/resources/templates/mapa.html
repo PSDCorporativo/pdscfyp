@@ -178,12 +178,7 @@
             });
                     var infoWindow = new google.maps.InfoWindow({map: map});
                     var locations = /*[[${pontos}]]*/;
-                    for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                    map: map,
-                    title: locations[i][0]
-            });
+                    console.log(locations[0][1]);
                     // Try HTML5 geolocation.
                     if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
