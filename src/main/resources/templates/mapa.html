@@ -180,6 +180,13 @@
                 var locations = /*[[${pontos}]]*/;
                         console.log(locations[0][1]);
 
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(-5.8111729, -35.1983597),
+                    title: 'nadinha',
+                    map: map,
+                    url: 'www.google.com'
+                });
+                
                 for (i = 0; i < locations.length; i++) {
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(parseFloat(locations[i][1]), paserFloat(locations[i][2])),
