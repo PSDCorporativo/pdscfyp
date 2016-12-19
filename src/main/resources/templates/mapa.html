@@ -179,19 +179,26 @@
                 var infoWindow = new google.maps.InfoWindow({map: map});
                 var locations = /*[[${pontos}]]*/;
                         console.log(locations[0][1]);
-                
+
                 for (i = 0; i < locations.length; i++) {
                     console.log("entrou");
                     console.log(parseFloat(locations[i][1]));
                     console.log(parseFloat(locations[i][2]));
-                    
+
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
                         title: locations[0],
                         map: map,
                         url: locations[3]
                     });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        window.location.href = this.url;
+                    });
+
                 }
+
+
                 // Try HTML5 geolocation.
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
