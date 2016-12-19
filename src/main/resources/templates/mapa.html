@@ -178,12 +178,11 @@
                 });
                 var infoWindow = new google.maps.InfoWindow({map: map});
                 var locations = /*[[${pontos}]]*/;
-                        console.log(locations[0][1]);
 
                 for (i = 0; i < locations.length; i++) {
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
-                        title: locations[0],
+                        title: locations[i][0],
                         map: map,
                         url: 'https://pdscfyp.herokuapp.com/profissional?id=' + locations[i][3]
                     });
