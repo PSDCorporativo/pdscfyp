@@ -185,14 +185,10 @@
                         position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
                         title: locations[0],
                         map: map,
-                        url: locations[3]
+                        url: 'https://pdscfyp.herokuapp.com/profissional?id=' + locations[i][3]
                     });
                     
-                    
                     google.maps.event.addListener(marker, 'click', function () {
-                        console.log(marker.url);
-                        console.log(locations[0][3]);
-                        
                         window.location.href = marker.url;
                     });
 
