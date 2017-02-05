@@ -45,6 +45,9 @@
         <!-- Morris Charts CSS -->
         <link href=".css/morris.css" rel="stylesheet"  />
 
+        <!-- Stars --> 
+        <link href="css/star.css" rel="stylesheet"  />
+
 
         <!-- Libs CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -160,6 +163,22 @@
                             <p>Profissão: <span th:text="${profissional.profissao}"></span></p>
                             <p>Endereço: <span th:text="${profissional.usuario.endereco.rua}"></span></p>
                             <p>Descrição: <span th:text="${profissional.descricao}"></span></p>
+                            <div id="alvalicao">
+                                <p>Avaliação: </p>
+                                <div class="star">
+                                    <input name="ratings" id="preco_2" value="2" class="radio radio-2" type="radio" />
+                                    <input name="ratings" id="preco_1" value="1" class="radio radio-1" type="radio" />
+                                    <input name="ratings" id="preco_3" value="3" class="radio radio-3" type="radio" />
+                                    <input name="ratings" id="preco_4" value="4" class="radio radio-4" type="radio" />
+                                    <input name="ratings" id="preco_5" value="5" class="radio radio-5" type="radio" />
+
+                                    <label for="preco_1" class="star-item star-item-1">1</label>
+                                    <label for="preco_2" class="star-item star-item-2">2</label>
+                                    <label for="preco_3" class="star-item star-item-3">3</label>
+                                    <label for="preco_4" class="star-item star-item-4">4</label>
+                                    <label for="preco_5" class="star-item star-item-5">5</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

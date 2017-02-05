@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 5, 2017, 10:33:35 AM
+    Author     : mateusocb
+*/
+
+.radio-1:checked ~ .star-item-1,
+.radio-1:focus ~ .star-item-1, .radio-2:checked ~ .star-item-1,
+.radio-2:focus ~ .star-item-1, .radio-2:checked ~ .star-item-2,
+.radio-2:focus ~ .star-item-2, .radio-3:checked ~ .star-item-1,
+.radio-3:focus ~ .star-item-1, .radio-3:checked ~ .star-item-2,
+.radio-3:focus ~ .star-item-2, .radio-3:checked ~ .star-item-3,
+.radio-3:focus ~ .star-item-3, .radio-4:checked ~ .star-item-1,
+.radio-4:focus ~ .star-item-1, .radio-4:checked ~ .star-item-2,
+.radio-4:focus ~ .star-item-2, .radio-4:checked ~ .star-item-3,
+.radio-4:focus ~ .star-item-3, .radio-4:checked ~ .star-item-4,
+.radio-4:focus ~ .star-item-4, .radio-5:checked ~ .star-item-1,
+.radio-5:focus ~ .star-item-1, .radio-5:checked ~ .star-item-2,
+.radio-5:focus ~ .star-item-2, .radio-5:checked ~ .star-item-3,
+.radio-5:focus ~ .star-item-3, .radio-5:checked ~ .star-item-4,
+.radio-5:focus ~ .star-item-4, .radio-5:checked ~ .star-item-5,
+.radio-5:focus ~ .star-item-5, .star:hover .star-item {
+  background: url("https://cloud.githubusercontent.com/assets/3089882/5245627/4e72507c-7945-11e4-8c0f-94b4c6b6dfb5.png") no-repeat;
+}
+
+.star .star-item, .star .star-item:hover ~ .star-item {
+  background: url("https://cloud.githubusercontent.com/assets/3089882/5245631/5d2c0414-7945-11e4-830c-e063a251603a.png") no-repeat;
+}
+
+.star .star-item {
+  font: "0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.radio {
+  position: absolute;
+  top: -999999em;
+  left: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.star {
+  margin: 0 0 0;
+  pointer-events: none;
+  width: 125px;
+  height: 0px;
+}
+.star .star-item {
+  cursor: pointer;
+  display: inline-flex;
+  height: 17px;
+  pointer-events: initial;
+  width: 21px;
+}
