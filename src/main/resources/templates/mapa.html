@@ -70,7 +70,6 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/custom.css" />
-
     </head>
     <body class="no-page-top">
         <!--Header-->
@@ -120,7 +119,7 @@
             </div>
         </header>
         <!--Set your own background color to the header-->
-        <div class="navbar-default sidebar" role="navigation">
+        <div class="col-md-2 navbar-default sidebar" role="navigation" style="width: 250px; height: 172px; padding-left: 0px; padding-right: 0px">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
@@ -141,26 +140,31 @@
             </div>
             <!-- /.sidebar-collapse -->
         </div>
+        <div id="page-wrapper" style="height: 720px">
+            <div class="col-md-10 offset-md-2">
+                <div class="panel-body" id="filtroProf" style="margin: 20px 20px 0px 0px; padding-left: 95px;">
 
-        <div class="panel-body" id="filtroProf" style="margin:  20px 20px  0 250px;">
-
-            <div class="col-sm-2">
-                <select class="form-control" id="ddlTipoProcura">                
-                    <option>Nome</option>
-                    <option>Eletricista</option>
-                    <option>Técnico em Informática</option> 
-                    <option>Marceneiro</option>
-                    <option>Encanador</option>     
-                </select>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="ddlTipoProcura">                
+                            <option>Nome</option>
+                            <option>Eletricista</option>
+                            <option>Técnico em Informática</option> 
+                            <option>Marceneiro</option>
+                            <option>Encanador</option>     
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="txtPesquisa" placeholder="Procurar Profissionais" />
+                    </div>
+                    <div class="col-sm-1">
+                        <button id="btnProcurar" type="submit" class="btn btn-default">Buscar</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="txtPesquisa" placeholder="Procurar Profissionais" />
+            <div class="col-md-8 offset-md-2">
+                <div th:id="map" class="conteiner" style="width:1000px; height:600px">
+                </div>
             </div>
-            <div class="col-sm-1">
-                <button id="btnProcurar" type="submit" class="btn btn-default">Buscar</button>
-            </div>
-        </div>
-        <div th:id="map">
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -169,47 +173,47 @@
             /*<![CDATA[*/
 
             function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -5.8246828, lng: -35.2331485},
-                    zoom: 11
-                });
-                var infoWindow = new google.maps.InfoWindow({map: map});
-                var locations = /*[[${pontos}]]*/;
+            var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -5.8246828, lng: -35.2331485},
+            zoom: 11
+            });
+            var infoWindow = new google.maps.InfoWindow({map: map});
+            var locations = /*[[${pontos}]]*/;
 
-                for (i = 0; i < locations.length; i++) {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
-                        title: locations[i][0],
-                        map: map,
-                        url: 'https://pdscfyp.herokuapp.com/profissional?id=' + locations[i][3]
-                    });
-                    
-                    google.maps.event.addListener(marker, 'click', function () {
-                        window.location.href = marker.url;
-                    });
+            for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
+            title: locations[i][0],
+            map: map,
+            url: 'https://pdscfyp.herokuapp.com/profissional?id=' + locations[i][3]
+            });
 
-                }
+            google.maps.event.addListener(marker, 'click', function () {
+            window.location.href = marker.url;
+            });
+
+            }
 
 
-                // Try HTML5 geolocation.
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        var pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
-                        infoWindow.setPosition(pos);
-                        infoWindow.setContent('Location found.');
-                        map.setCenter(pos);
-                    }, function () {
-                        handleLocationError(true, infoWindow, map.getCenter());
-                    });
-                } else {
-                    // Browser doesn't support Geolocation
-                    handleLocationError(false, infoWindow, map.getCenter());
-                }
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+            }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            }
 
-                /*]]>*/
+            /*]]>*/
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLRQ_xNODsjWa7Fqzy7SRI2FO4HIkXn7E&amp;signed_in=true&amp;callback=initMap" defer="defer">
