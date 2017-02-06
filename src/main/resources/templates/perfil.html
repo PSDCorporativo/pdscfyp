@@ -220,18 +220,18 @@
             /*<![CDATA[*/
 
             $('#preco_1').click(function () {
-
+            if ([[${usuarioLogado}]]) {
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=1"; 
-            console.log(url);
             $.get(url);
-
+            } else {
+            window.location.href = "https://pdscfyp.herokuapp.com/cadastro";
+            }
             return false;
             });
 
             $('#preco_2').click(function () {
 
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=2"; 
-            console.log(url);
             $.get(url);
 
             return false;
@@ -239,7 +239,6 @@
             $('#preco_3').click(function () {
 
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=3"; 
-            console.log(url);
             $.get(url);
 
             return false;
@@ -247,7 +246,6 @@
             $('#preco_4').click(function () {
 
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=4"; 
-            console.log(url);
             $.get(url);
 
             return false;
@@ -255,7 +253,6 @@
             $('#preco_5').click(function () {
 
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=5"; 
-            console.log(url);
             $.get(url);
 
             return false;
