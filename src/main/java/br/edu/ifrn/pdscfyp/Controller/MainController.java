@@ -28,19 +28,8 @@ public class MainController {
 
         model.addAttribute("usuarioLogado", u);
 
-        model.addAttribute("dadosInvalidos", false);
-
-        return "index";
-    }
-
-    @RequestMapping("/index/{dadosInvalidos}")
-    public String index(HttpSession session, Model model, @PathVariable("dadosInvalidos") boolean dadosInvalidos) {
-
-        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
-
-        model.addAttribute("usuarioLogado", u);
-
-        model.addAttribute("dadosInvalidos", true);
+        String a = (String) session.getAttribute("falhaLogin");
+        model.addAttribute("dadosInvalidos", a);
 
         return "index";
     }
@@ -67,7 +56,8 @@ public class MainController {
         if (u != null) {
             return "redirect:mapa";
         } else {
-            return "redirect:index/true";
+            session.setAttribute("falhaLogin", "algumacoisa");
+            return "redirect:index";
         }
     }
 
