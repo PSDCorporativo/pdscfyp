@@ -40,7 +40,7 @@ public class MainController {
 
         model.addAttribute("usuarioLogado", u);
 
-        model.addAttribute("dadosInvalidos", dadosInvalidos);
+        model.addAttribute("dadosInvalidos", true);
 
         return "index";
     }
