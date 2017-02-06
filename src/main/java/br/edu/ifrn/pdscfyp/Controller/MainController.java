@@ -9,6 +9,7 @@ import br.edu.ifrn.pdscfyp.Model.Usuario;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +22,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     @RequestMapping("/index")
-    public String index(HttpSession session, Model model, @RequestParam("dadosInvalidos") boolean dadosInvalidos) {
+    public String index(HttpSession session, Model model) {
 
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
+
+        model.addAttribute("dadosInvalidos", false);
+
+        return "index";
+    }
+
+    @RequestMapping("/index/{dadosInvalidos}")
+    public String index(HttpSession session, Model model, @PathVariable("dadosInvalidos") boolean dadosInvalidos) {
+
+        Usuario u = (Usuario) session.getAttribute("usuarioLogado");
+
+        model.addAttribute("usuarioLogado", u);
+
         model.addAttribute("dadosInvalidos", dadosInvalidos);
 
         return "index";
