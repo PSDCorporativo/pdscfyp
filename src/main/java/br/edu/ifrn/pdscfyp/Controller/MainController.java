@@ -67,7 +67,7 @@ public class MainController {
         if (u != null) {
             return "redirect:mapa";
         } else {
-            return "redirect:index?dadosInvalidos=true";
+            return "redirect:index/true";
         }
     }
 
