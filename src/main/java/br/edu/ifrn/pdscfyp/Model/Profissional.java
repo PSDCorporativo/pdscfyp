@@ -11,6 +11,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import java.util.Set;
+import jdk.nashorn.internal.parser.JSONParser;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -100,6 +101,7 @@ public class Profissional implements Comparable<Profissional> {
         WebResource wr = c.resource("https://apifyp.herokuapp.com/GetFuncionarioById?idProfissional=" + idProfisisonal);
         String json = wr.get(String.class);
 
+       
         Gson gson = new Gson();
         return gson.fromJson(json, new TypeToken<Profissional>() {
         }.getType());

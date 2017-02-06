@@ -45,10 +45,6 @@
         <!-- Morris Charts CSS -->
         <link href=".css/morris.css" rel="stylesheet"  />
 
-        <!-- Stars --> 
-        <link href="css/star.css" rel="stylesheet"  />
-
-
         <!-- Libs CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
@@ -67,6 +63,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="css/star.css" />
     </head>
 
     <body class="no-page-top">
@@ -159,15 +156,18 @@
                             <img style="max-width:200px;max-height:150px;width: auto;height: auto;" src="http://tecnologia.culturamix.com/blog/wp-content/uploads/2013/12/Analisando-as-Imagens-do-Perfil1.jpg" />
                         </div>
                         <div class="col-md-8">
+
                             <p>Nome: <span th:text="${profissional.usuario.nome}"></span></p>
                             <p>Profissão: <span th:text="${profissional.profissao}"></span></p>
                             <p>Endereço: <span th:text="${profissional.usuario.endereco.rua}"></span></p>
                             <p>Descrição: <span th:text="${profissional.descricao}"></span></p>
-                            <div id="alvalicao">
-                                <p>Avaliação: </p>
-                                <div class="star">
-                                    <input name="ratings" id="preco_2" value="2" class="radio radio-2" type="radio" />
+                            <p>Media de Avaliação: <span th:text="${profissional.pontuacao}"></span>/10</p>
+                            <div>
+                                <p>Sua Avaliação:</p>
+
+                                <div class="star" style="margin-top: 0px; margin-left: 0px;">
                                     <input name="ratings" id="preco_1" value="1" class="radio radio-1" type="radio" />
+                                    <input name="ratings" id="preco_2" value="2" class="radio radio-2" type="radio" />
                                     <input name="ratings" id="preco_3" value="3" class="radio radio-3" type="radio" />
                                     <input name="ratings" id="preco_4" value="4" class="radio radio-4" type="radio" />
                                     <input name="ratings" id="preco_5" value="5" class="radio radio-5" type="radio" />
@@ -216,5 +216,52 @@
         <script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
         <script src="js/theme-core.js"></script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+
+            $('#preco_1').click(function () {
+
+            var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=1"; 
+            console.log(url);
+            $.get(url);
+
+            return false;
+            });
+
+            $('#preco_2').click(function () {
+
+            var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=2"; 
+            console.log(url);
+            $.get(url);
+
+            return false;
+            });
+            $('#preco_3').click(function () {
+
+            var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=3"; 
+            console.log(url);
+            $.get(url);
+
+            return false;
+            });
+            $('#preco_4').click(function () {
+
+            var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=4"; 
+            console.log(url);
+            $.get(url);
+
+            return false;
+            });
+            $('#preco_5').click(function () {
+
+            var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=5"; 
+            console.log(url);
+            $.get(url);
+
+            return false;
+            });
+
+            /*]]>*/
+        </script>
     </body>
 </html>

@@ -5,6 +5,7 @@
  */
 package br.edu.ifrn.pdscfyp.Controller;
 
+import br.edu.ifrn.pdscfyp.Model.Avaliacao;
 import br.edu.ifrn.pdscfyp.Model.Profissional;
 import br.edu.ifrn.pdscfyp.Model.Usuario;
 import com.google.gson.Gson;
@@ -21,7 +22,9 @@ import java.util.TreeSet;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,7 +87,7 @@ public class ProfissionalController {
         Gson gson = new Gson();
         pontos = gson.fromJson(json, new TypeToken<List<List<String>>>() {
         }.getType());
-        
+
         model.addAttribute("usuarioLogado", u);
 
         model.addAttribute("pontos", pontos);
@@ -154,7 +157,14 @@ public class ProfissionalController {
         model.addAttribute("profissional", p);
 
         // apenas um comentário
-        
         return "perfil";
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/adicionarAvaliacao", method = RequestMethod.POST)
+    public void adicionarAvaliação(@RequestBody String rb) {
+        Gson gson = new Gson();
+
+        System.out.println(rb);
     }
 }
