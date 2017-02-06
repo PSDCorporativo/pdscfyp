@@ -21,11 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     @RequestMapping("/index")
-    public String index(HttpSession session, Model model) {
+    public String index(HttpSession session, Model model, @RequestParam("dadosInvalidos") boolean dadosInvalidos) {
 
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
+        model.addAttribute("dadosInvalidos", dadosInvalidos);
 
         return "index";
     }
@@ -49,7 +50,11 @@ public class MainController {
         Usuario u = Usuario.login(login, senha);
         session.setAttribute("usuarioLogado", u);
 
-        return "redirect:mapa";
+        if (u != null) {
+            return "redirect:mapa";
+        } else {
+            return "redirect:index?dadosInvalidos=true";
+        }
     }
 
 }
