@@ -27,9 +27,15 @@ public class MainController {
         Usuario u = (Usuario) session.getAttribute("usuarioLogado");
 
         model.addAttribute("usuarioLogado", u);
+        model.addAttribute("sessao", session);
 
-        String a = (String) session.getAttribute("falhaLogin");
-        model.addAttribute("dadosInvalidos", a);
+        if (session.getAttribute("jaPassou") != null && (boolean) session.getAttribute("jaPassou") == true) {
+            String a = (String) session.getAttribute("falhaLogin");
+            model.addAttribute("dadosInvalidos", a);
+            session.setAttribute("jaPassou", false);
+        } else {
+            session.setAttribute("jaPassou", false);
+        }
 
         return "index";
     }
@@ -56,6 +62,7 @@ public class MainController {
         if (u != null) {
             return "redirect:mapa";
         } else {
+            session.setAttribute("jaPassou", true);
             session.setAttribute("falhaLogin", "algumacoisa");
             return "redirect:index";
         }
