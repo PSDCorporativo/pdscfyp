@@ -93,7 +93,7 @@ public class ProfissionalController {
 
         model.addAttribute("pontos", pontos);
 
-        return "mapa";
+        return "dashboard";
     }
 
     @RequestMapping("/cadastro")

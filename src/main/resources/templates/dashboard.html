@@ -117,16 +117,62 @@
     <script src="js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
 
     <!-- Material Dashboard javascript methods -->
     <script src="js/material-dashboard.js"></script>
 
-    <script src="js/mapa.js"></script>
+    <!--<script src="js/mapa.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <script>
-        $().ready(function(){
-        demo.initGoogleMaps();
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -5.8246828, lng: -35.2331485},
+        zoom: 11
         });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+        var locations = /*[[${pontos}]]*/;
+
+        for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat(locations[i][1]), parseFloat(locations[i][2])),
+        title: locations[i][0],
+        map: map,
+        url: 'https://pdscfyp.herokuapp.com/profissional?id=' + locations[i][3]
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+        window.location.href = marker.url;
+        });
+
+        }
+
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        };
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        map.setCenter(pos);
+        }, function () {
+        handleLocationError(true, infoWindow, map.getCenter());
+        });
+        } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        /*]]>*/
+        }
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxA02l90XqwUFvWnn3nrtIQj_zJHy3ugg&amp;signed_in=true&amp;callback=initMap" defer="defer">
+    </script>
+
 </html>
