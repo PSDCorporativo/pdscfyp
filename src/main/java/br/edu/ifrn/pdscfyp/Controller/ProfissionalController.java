@@ -158,7 +158,7 @@ public class ProfissionalController {
         model.addAttribute("profissional", p);
 
         // apenas um comentário
-        return "perfil";
+        return "perfil_pro";
     }
 
     @CrossOrigin

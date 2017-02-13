@@ -219,7 +219,8 @@
         <script th:if="${usuarioLogado != null}" th:inline="javascript">
             /*<![CDATA[*/
 
-            $('#preco_1').click(function () {
+           <script th:if="${usuarioLogado != null}" th:inline="javascript">
+         $('#preco_1').click(function () {
             var url = "https://apifyp.herokuapp.com/AdicionarAvaliacao?idusuario=[[${usuarioLogado.id}]]&idprofissional=[[${profissional.id}]]&avaliacao=1"; 
             $.get(url);
             return false;
