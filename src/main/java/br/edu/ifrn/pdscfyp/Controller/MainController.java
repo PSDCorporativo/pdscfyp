@@ -37,7 +37,7 @@ public class MainController {
             session.setAttribute("jaPassou", false);
         }
 
-        return "index";
+        return "dashboard";
     }
 
     @RequestMapping("/")

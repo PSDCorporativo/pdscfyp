@@ -12,6 +12,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import java.util.Set;
 import jdk.nashorn.internal.parser.JSONParser;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,13 +47,7 @@ public class Profissional implements Comparable<Profissional> {
 
     @Override
     public int compareTo(Profissional p) {
-        if (this.pontuacao > p.getPontuacao()) {
-            return -1;
-        } else if (this.pontuacao < p.getPontuacao()) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return  p.getPontuacao() - this.pontuacao;
     }
 
     public static Profissional getProfissionalByLogin(String login) {

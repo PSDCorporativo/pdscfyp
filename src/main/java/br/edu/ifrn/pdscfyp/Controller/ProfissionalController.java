@@ -46,7 +46,7 @@ public class ProfissionalController {
 
         model.addAttribute("profissionais", profissionais);
 
-        return "listar";
+        return "list_pro";
     }
 
     @RequestMapping("/ranking")
@@ -61,17 +61,18 @@ public class ProfissionalController {
         Set<Profissional> profissionais = Profissional.getProfissionais();
         Set<Profissional> profissionaisOrdenados = new TreeSet();
 
-        indice = profissionais.size();
-
         for (Profissional p : profissionais) {
             profissionaisOrdenados.add(p);
-            indexes.put(p, indice--);
         }
-
+        
+        for (Profissional p : profissionaisOrdenados) {
+            indexes.put(p, ++indice);
+        }
+ 
         model.addAttribute("profissionaisOrdenados", profissionaisOrdenados);
         model.addAttribute("indexes", indexes);
 
-        return "ranking";
+        return "ranking_pro";
     }
 
     @RequestMapping("/mapa")
