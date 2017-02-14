@@ -37,12 +37,12 @@ public class MainController {
             session.setAttribute("jaPassou", false);
         }
 
-        return "redirect:index";
+        return "redirect:dashboard";
     }
 
     @RequestMapping("/")
     public String indexDois(HttpSession session, Model model) {
-        return "redirect:index";
+        return "redirect:dashboard";
     }
 
     @RequestMapping("/logout")
